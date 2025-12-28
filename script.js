@@ -29,6 +29,7 @@ function createGameCard(gameInfo) {
             <h3 class="game-card-title">${gameData.name}</h3>
             <p class="game-card-description">${game.description || gameData.description || 'No description available'}</p>
             <div class="game-card-stats">
+                <div class="game-card-stat">Playing: ${formatNumber(gameData.playing || 0)}</div>
                 <div class="game-card-stat">Visits: ${formatNumber(gameData.visits || 0)}</div>
                 <div class="game-card-stat">Likes: ${formatNumber(gameData.upVotes || 0)}</div>
                 <div class="game-card-stat">Favs: ${formatNumber(gameData.favoritedCount || 0)}</div>
@@ -50,16 +51,18 @@ function calculateTotalStats(gamesData) {
         const { gameData } = gameInfo;
         return {
             totalGames: totals.totalGames + 1,
+            totalPlaying: totals.totalPlaying + (gameData.playing || 0),
             totalVisits: totals.totalVisits + (gameData.visits || 0),
             totalLikes: totals.totalLikes + (gameData.upVotes || 0),
             totalFavorites: totals.totalFavorites + (gameData.favoritedCount || 0)
         };
-    }, { totalGames: 0, totalVisits: 0, totalLikes: 0, totalFavorites: 0 });
+    }, { totalGames: 0, totalPlaying: 0, totalVisits: 0, totalLikes: 0, totalFavorites: 0 });
 }
 
 // Update stats display
 function updateStats(stats) {
     document.getElementById('totalGames').textContent = stats.totalGames;
+    document.getElementById('totalPlaying').textContent = formatNumber(stats.totalPlaying);
     document.getElementById('totalVisits').textContent = formatNumber(stats.totalVisits);
     document.getElementById('totalLikes').textContent = formatNumber(stats.totalLikes);
     document.getElementById('totalFavorites').textContent = formatNumber(stats.totalFavorites);
@@ -80,6 +83,7 @@ async function initIndexPage() {
         document.getElementById('loading').style.display = 'none';
         document.getElementById('content').style.display = 'block';
         document.getElementById('totalGames').textContent = '0';
+        document.getElementById('totalPlaying').textContent = '0';
         document.getElementById('totalVisits').textContent = '0';
         document.getElementById('totalLikes').textContent = '0';
         document.getElementById('totalFavorites').textContent = '0';

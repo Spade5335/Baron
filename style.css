@@ -195,8 +195,9 @@ nav {
 }
 
 .game-card-stats {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
     font-size: 0.85rem;
     color: #888;
 }
