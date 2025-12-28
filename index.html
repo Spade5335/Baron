@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baron Studios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <h1>Baron Studios</h1>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="games.html">All Games</a>
+                <a href="admin.html">Admin</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Loading State -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading studio data...</p>
+        </div>
+
+        <!-- Main Content -->
+        <div id="content" style="display: none;">
+            <!-- Total Stats -->
+            <section class="stats-section">
+                <h2>Studio Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">Games</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="totalGames">0</div>
+                            <div class="stat-label">Total Games</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">Visits</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="totalVisits">0</div>
+                            <div class="stat-label">Total Visits</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">Likes</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="totalLikes">0</div>
+                            <div class="stat-label">Total Likes</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">Favorites</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="totalFavorites">0</div>
+                            <div class="stat-label">Total Favorites</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Top 3 Games -->
+            <section class="top-games-section">
+                <h2>Top 3 Games</h2>
+                <div id="topGames" class="top-games-grid">
+                    <!-- Games will be loaded here -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Error State -->
+        <div id="error" class="error-message" style="display: none;">
+            <p>Failed to load studio data. Please try again later.</p>
+        </div>
+    </div>
+
+    <script src="games-config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

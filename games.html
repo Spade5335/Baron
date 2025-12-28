@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Games - Baron Studios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <h1>Baron Studios</h1>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="games.html" class="active">All Games</a>
+                <a href="admin.html">Admin</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Loading State -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading games...</p>
+        </div>
+
+        <!-- Main Content -->
+        <div id="content" style="display: none;">
+            <section class="all-games-section">
+                <h2>All Games</h2>
+                <div id="allGames" class="all-games-grid">
+                    <!-- Games will be loaded here -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Error State -->
+        <div id="error" class="error-message" style="display: none;">
+            <p>Failed to load games. Please try again later.</p>
+        </div>
+    </div>
+
+    <script src="games-config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

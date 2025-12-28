@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Baron Studios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <h1>Baron Studios</h1>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="games.html">All Games</a>
+                <a href="admin.html" class="active">Admin</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="admin-section">
+            <h2>Admin Panel</h2>
+            
+            <!-- Add Game Form -->
+            <div class="admin-card">
+                <h3>Add New Game</h3>
+                <form id="addGameForm">
+                    <div class="form-group">
+                        <label for="gameUrl">Roblox Game URL</label>
+                        <input 
+                            type="text" 
+                            id="gameUrl" 
+                            placeholder="https://www.roblox.com/games/123456789/Game-Name" 
+                            required
+                        >
+                        <small>Paste any Roblox game URL and we'll extract the IDs automatically</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gameDescription">Description (Optional)</label>
+                        <textarea 
+                            id="gameDescription" 
+                            placeholder="Enter a custom description for this game"
+                            rows="3"
+                        ></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Add Game</button>
+                </form>
+                
+                <div id="addGameStatus" class="status-message"></div>
+            </div>
+
+            <!-- Manage Games -->
+            <div class="admin-card">
+                <h3>Manage Games</h3>
+                <div id="gamesList" class="games-list">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Loading games...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cache Management -->
+            <div class="admin-card">
+                <h3>Cache Management</h3>
+                <p>Clear cached game data to force fresh fetches from Roblox.</p>
+                <button onclick="clearAllCache()" class="btn-secondary">Clear Cache</button>
+                <div id="cacheStatus"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="games-config.js"></script>
+    <script src="admin-script.js"></script>
+</body>
+</html>
